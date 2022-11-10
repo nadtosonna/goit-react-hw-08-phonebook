@@ -1,16 +1,30 @@
-export const App = () => {
+import { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import UserRoutes from "../UserRoutes";
+import { Loader } from "./Loader/Loader";
+import { getLoadingUserStatus } from "redux/auth/auth-selectors";
+import { current } from "redux/auth/auth-operations";
+import Navbar from "./Navbar/Navbar";
+
+
+function App() {
+  const dispatch = useDispatch();
+  const isLoadingUser = useSelector(getLoadingUserStatus);
+
+  useEffect(() => {
+    dispatch(current());
+  }, [dispatch]);
+
   return (
-    <div
-      style={{
-        height: '100vh',
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-        fontSize: 40,
-        color: '#010101'
-      }}
-    >
-      React homework template
+    <div className="App">
+      <Navbar />
+      {isLoadingUser ? <Loader /> : (
+        <>
+          <UserRoutes />
+        </>
+      )}
     </div>
   );
-};
+}
+
+export default App;

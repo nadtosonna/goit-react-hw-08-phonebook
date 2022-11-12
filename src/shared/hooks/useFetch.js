@@ -24,7 +24,7 @@ const useFetch = ({fetchData, dependencies, isFetch}) => {
           fetchContacts();
     }, [...dependencies]);
 
-    return {contacts, loading, error, setItems, setLoading, setError};
+    return {contacts, loading, error, setContacts, setLoading, setError};
 
 }
 

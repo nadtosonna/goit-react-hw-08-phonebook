@@ -1,4 +1,3 @@
-import NavbarMenu from "./NavbarMenu/NavbarMenu";
 import NavbarAuth from './NavbarAuth/NavbarAuth';
 import NavbarUser from './NavbarUser/NavbarUser';
 
@@ -19,8 +18,6 @@ const Navbar = () => {
             <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
             Phonebook
             </Typography>
-
-            {isLogged && <NavbarMenu />}
             {isLogged ? <NavbarUser /> : <NavbarAuth />}
         </Toolbar>
       </AppBar>

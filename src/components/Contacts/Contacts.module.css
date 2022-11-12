@@ -1,0 +1,22 @@
+.wrapper {
+    padding: 0px 20px 30px 20px;
+    width: 500px;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    border: 1px solid #1976d2;
+    box-shadow: 1px 1px 5px #1976d2;
+}
+.filter {
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+.contactList {
+    padding: 10px 100px 20px 100px;
+    text-align: center;
+}
+.listTitle {
+    padding-bottom: 10px;
+    border-bottom: 1px solid #1976d2;
+}

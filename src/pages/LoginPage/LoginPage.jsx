@@ -5,7 +5,7 @@ import { isLogged } from "../../redux/auth/auth-selectors";
 import { Navigate } from "react-router-dom";
 
 import LoginForm from '../../components/LoginForm/LoginForm';
-import css from "./LoginPage.module.css";
+import styles from "./LoginPage.module.css";
 
 export default function LoginPage() {
   const dispatch = useDispatch();
@@ -20,7 +20,7 @@ export default function LoginPage() {
   }
   
   return (
-    <div className={css.container}>
+    <div className={styles.container}>
       <h1>Login page</h1>
       <LoginForm onSubmit={onLogin}/>
     </div>

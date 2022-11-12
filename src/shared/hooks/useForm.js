@@ -3,7 +3,7 @@ import {useState} from "react";
 const useForm = ({initialState, onSubmit}) => {
     const [state, setState] = useState({...initialState});
 
-    const handleChange = ({target}) => {
+    const onHandleChange = ({target}) => {
         const {value, name} = target;
         setState(prevState => ({
             ...prevState,
@@ -11,13 +11,13 @@ const useForm = ({initialState, onSubmit}) => {
         }))
     }
 
-    const handleSubmit = (e) => {
+    const onHandleSubmit = (e) => {
         e.preventDefault();
         onSubmit({...state});
         setState({...initialState});
     };
 
-    return {state, setState, handleChange, handleSubmit}
+    return {state, setState, onHandleChange, onHandleSubmit}
 }
 
 export default useForm;

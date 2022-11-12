@@ -1,38 +1,48 @@
-import { useMemo } from "react";
-import PropTypes from "prop-types";
-import { nanoid } from "nanoid";
-
 import useForm from '../../shared/hooks/useForm';
-
-import TextField from "../../shared/components/TextField/TextField";
-
-import initialState from "./initialState";
-import fields from "./fields";
 import Button from '@mui/material/Button';
+import { TextField } from "@mui/material";
+import Stack from '@mui/material/Stack';
+import styled from './LoginForm.module.css';
+
+const initialState = {
+    email: "",
+    password: "",
+}
 
 const LoginForm = ({onSubmit}) => {
-    const {state, handleChange, handleSubmit} = useForm({initialState, onSubmit});
-
-    const emailId = useMemo(()=> nanoid(), []);
-    const passwordId = useMemo(()=> nanoid(), []);
+    const {state, onHandleChange, onHandleSubmit} = useForm({initialState, onSubmit});
 
     const {email, password} = state;
 
     return (
-        <form onSubmit={handleSubmit}>
-            <TextField id={emailId} value={email} handleChange={handleChange} {...fields.email} />
-            <TextField id={passwordId} value={password} handleChange={handleChange} {...fields.password} />
-            <Button variant="contained" onClick={handleSubmit}>Login</Button>
+        <form onSubmit={onHandleSubmit}>
+        <Stack spacing={2}>
+          <TextField
+            variant="outlined"
+            size="small"
+            label="Email"
+            type="email"
+            name="email"
+            value={email}
+            onChange={onHandleChange}
+            placeholder="example@mail.com"
+            required
+          />
+          <TextField
+            variant="outlined"
+            size="small"
+            label="Password"
+            type="password"
+            name="password"
+            value={password}
+            onChange={onHandleChange}
+            placeholder="Enter your password"
+            required
+          />
+             </Stack>
+            <Button className={styled.btn} variant="contained" onClick={onHandleSubmit}>Login</Button>
         </form>
     )
 }
 
 export default LoginForm;
-
-LoginForm.defaultProps = {
-    onSubmit: () => {}
-}
-
-LoginForm.propTypes = {
-    onSubmit: PropTypes.func,
-}

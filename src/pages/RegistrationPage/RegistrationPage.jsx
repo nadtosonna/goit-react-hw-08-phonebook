@@ -1,10 +1,8 @@
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { signup } from "../../redux/auth/auth-operations";
-import { isLogged } from "../../redux/auth/auth-selectors";
-import { Navigate } from "react-router-dom";
 
 import RegisterForm from '../../components/RegisterForm/RegisterForm';
-import css from "./RegistrationPage.module.css";
+import styles from "./RegistrationPage.module.css";
 
 export default function RegisterPage() {
   const dispatch = useDispatch();
@@ -14,7 +12,7 @@ export default function RegisterPage() {
   }
 
   return (
-    <div className={css.container}>
+    <div className={styles.container}>
       <h1>Registration page</h1>
       <RegisterForm onSubmit={onRegister}/>
     </div>

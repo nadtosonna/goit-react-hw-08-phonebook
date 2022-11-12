@@ -14,7 +14,6 @@ export default function NavbarAuth() {
       ? {
           color: '#fff',
           textDecoration: 'none',
-          fontWeight: '600',
         }
       : {
           color: '#000000',
@@ -29,7 +28,6 @@ export default function NavbarAuth() {
       ? {
           color: '#fff',
           textDecoration: 'none',
-          fontWeight: '600',
         }
       : {
           color: '#000000',

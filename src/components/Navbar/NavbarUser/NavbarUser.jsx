@@ -13,6 +13,6 @@ export default function NavbarUser() {
   }
 
   return (
-    <div>{`Welcome back, ${name}!`} &nbsp; <Button color="inherit" variant="outlined" onClick={onLogout} endIcon={<Logout />}>Logout</Button></div>
+    <div>{`Welcome back, ${name}!`}  <Button color="inherit" variant="outlined" onClick={onLogout} endIcon={<Logout />}>Logout</Button></div>
   )
 }

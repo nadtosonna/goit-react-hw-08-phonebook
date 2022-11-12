@@ -7,8 +7,8 @@ import AddCircleOutlineIcon from '@mui/icons-material/AddCircleOutline';
 import Stack from '@mui/material/Stack';
 
 const ContactForm = ({ onSubmit }) => {
-    const { state, onHandleChange, onHandleSubmit } = useForm({ initialState, onSubmit });
-    const { name, number } = state;
+  const { state, onHandleChange, onHandleSubmit } = useForm({ initialState, onSubmit });
+  const { name, number } = state;
     
   return (
 

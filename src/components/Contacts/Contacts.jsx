@@ -1,18 +1,17 @@
 import Filter from "components/Filter/Filter";
+import { Loader } from "components/Loader/Loader";
 import {useEffect} from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { fetchContacts } from "redux/contacts/contacts-operations";
 import { getFilteredContacts, getState } from "redux/contacts/contacts-selectors";
-import { getFilter } from "redux/filter/filter-selectors";
-import { addContact, removeContact } from "shared/api/contacts";
+import { addContact } from "../../redux/contacts/contacts-operations";
 import ContactForm from "./ContactForm/ContactForm";
 import ContactList from "./ContactList/ContactList";
 import styled from './Contacts.module.css';
 
 const Contacts = () => {
-    const contacts = useSelector(getFilteredContacts);
+    const items = useSelector(getFilteredContacts);
     const { loading, error } = useSelector(getState);
-    const filter = useSelector(getFilter);
 
     const dispatch = useDispatch();
 
@@ -22,11 +21,7 @@ const Contacts = () => {
 
     const onAddContact = data => {
         const action = addContact(data);
-        console.log(data);
         dispatch(action);
-    };
-    const onRemoveContact = id => {
-        dispatch(removeContact(id));
     };
 
     return (
@@ -37,12 +32,14 @@ const Contacts = () => {
             </div>
             <div className={styled.filter}>
                 <h2>Filter contacts</h2>
-                <Filter filter = {filter} />
+                <Filter />
             </div>
             <div className={styled.contactList}>
                 <h2 className={styled.listTitle}>Contact List</h2>
-                <ContactList contacts={contacts} removeContact={onRemoveContact} />
-            </div>
+                {!loading ? <ContactList contacts={items} /> : <p className={styled.empty}>Your Contact list is empty.</p>} 
+                {loading && <Loader />}
+            </div> 
+            {error && <p>Ooops! Something went wrong! {error}</p>}
         </div>
     )
 }

@@ -1,0 +1,1 @@
+{"version":3,"file":"static/css/674.fbc57342.chunk.css","mappings":"AAAA,uBAEI,kBAAmB,CADnB,YAAa,CAEb,iBACJ","sources":["pages/HomePage/HomePage.module.css"],"sourcesContent":[".home {\n    padding: 20px;\n    align-items: center;\n    text-align: center;\n}\n"],"names":[],"sourceRoot":""}

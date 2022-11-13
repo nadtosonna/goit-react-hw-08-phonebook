@@ -17,10 +17,10 @@ const ContactList = () => {
         <>
             {contacts && contacts.length !== 0 ?
                 <table className={styled.table}>
-                <thead className={styled.head}>
-                <td>Name</td>
-                <td>Phone Number</td>
-                </thead>
+                <tr className={styled.head}>
+                <th>Name</th>
+                <th>Phone Number</th>
+                </tr>
             {contacts.map(({ name, number, id }) => {
                 return (
                     <tr key={id} className={styled.row}>

@@ -17,26 +17,29 @@ const ContactList = () => {
         <>
             {contacts && contacts.length !== 0 ?
                 <table className={styled.table}>
-                <tr className={styled.head}>
-                <th>Name</th>
-                <th>Phone Number</th>
-                </tr>
+                    <thead>
+                        <tr className={styled.head}>
+                        <th>Name</th>
+                        <th>Phone Number</th>
+                        </tr>
+                    </thead>
+                    <tbody>
             {contacts.map(({ name, number, id }) => {
                 return (
                     <tr key={id} className={styled.row}>
                         <td className={styled.cellName}>{name}</td>
                         <td className={styled.cellNumber}>{number}</td>
-                        <div>
-                            <IconButton type="submit" color="primary" aria-label="delete" onClick={() => onRemoveContact(id)} className={styled.btn}>
-                                <DeleteIcon />
-                            </IconButton>
-                        </div>
+                        <td>
+                        <IconButton type="submit" color="primary" aria-label="delete" onClick={() => onRemoveContact(id)} className={styled.btn}>
+                            <DeleteIcon />
+                        </IconButton>
+                        </td>
                     </tr>
                 )
             })}
+                    </tbody>
+           
             </table> : <p className={styled.empty}>Your Contact list is empty.</p>}
-            
-            
         </>
     )
 }

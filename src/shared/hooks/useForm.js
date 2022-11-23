@@ -1,10 +1,10 @@
 import {useState} from "react";
 
 const useForm = ({initialState, onSubmit}) => {
-    const [state, setState] = useState({...initialState});
-
+    const [state, setState] = useState({ ...initialState });
+    
     const onHandleChange = ({target}) => {
-        const {value, name} = target;
+        const { value, name } = target;
         setState(prevState => ({
             ...prevState,
             [name]: value,
@@ -13,6 +13,9 @@ const useForm = ({initialState, onSubmit}) => {
 
     const onHandleSubmit = (e) => {
         e.preventDefault();
+        if (state.name === '' || state.number === '') {
+            return;
+        }
         onSubmit({...state});
         setState({...initialState});
     };

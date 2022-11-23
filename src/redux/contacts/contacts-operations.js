@@ -35,7 +35,7 @@ export const addContact = createAsyncThunk(
         }
     },
     {
-        condition: (data, {getState}) => {
+        condition: (data, { getState }) => {
             const {contacts} = getState();
             if(isDublicate(data, contacts.items)) {
                 Notify.info(`${data.name} - ${data.number} is alredy exists!`,  {

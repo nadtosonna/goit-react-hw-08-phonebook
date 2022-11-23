@@ -15,6 +15,7 @@ const ContactForm = ({ onSubmit }) => {
     <form onSubmit={onHandleSubmit}>
       <Stack spacing={2} direction="row">
         <TextField
+          required
           variant="outlined"
           size="small"
           type="text"
@@ -24,9 +25,9 @@ const ContactForm = ({ onSubmit }) => {
           title="Name may contain only letters, apostrophe, dash and spaces."
           value={name}
           onChange={onHandleChange}
-          required
         />
         <TextField
+          required
           variant="outlined"
           size="small"
           type="tel"
@@ -36,7 +37,6 @@ const ContactForm = ({ onSubmit }) => {
           title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
           value={number}
           onChange={onHandleChange}
-          required
         />
         <IconButton type="submit" color="primary" aria-label="add" onClick={onHandleSubmit}>
           <AddCircleOutlineIcon />
